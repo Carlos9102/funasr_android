@@ -1,0 +1,36 @@
+cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
+
+set(CMAKE_OSX_DEPLOYMENT_TARGET "10.14" CACHE STRING "Minimum OS X deployment version. Used only for macOS")
+
+set(CMAKE_POLICY_DEFAULT_CMP0063 NEW)
+set(CMAKE_POLICY_DEFAULT_CMP0069 NEW)
+
+project(funasr_android)
+
+set(FUNASR_ANDROID_VERSION "0.1.0")
+
+# Disable warning about
+#
+# "The DOWNLOAD_EXTRACT_TIMESTAMP option was not given and policy CMP0135 is
+#  not set.
+if (CMAKE_VERSION VERSION_GREATER_EQUAL "3.24.0")
+  cmake_policy(SET CMP0135 NEW)
+endif()
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+
+if(NOT CMAKE_BUILD_TYPE)
+  message(STATUS "No CMAKE_BUILD_TYPE given, default to Release")
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+
+
+if(BUILD_SHARED_LIBS)
+  set(CMAKE_CXX_VISIBILITY_PRESET hidden)
+  set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
+  set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+endif()
+
+message(STATUS "Testing cmake")
