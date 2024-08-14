@@ -10,8 +10,8 @@ set(ONNXRUNTIME_DOWNLOAD_DIR ${CMAKE_CURRENT_BINARY_DIR}/${ONNXRUNTIME_VERSION})
 message(STATUS "onnxruntime dir: ${ONNXRUNTIME_DOWNLOAD_DIR}")
 message(STATUS "ANDROID ABI: ${ANDROID_ABI}")
 
-link_directories(${ONNXRUNTIME_DOWNLOAD_DIR}/jni/${ANDROID_ABI})
 include_directories(${ONNXRUNTIME_DOWNLOAD_DIR}/headers)
+link_directories(${ONNXRUNTIME_DOWNLOAD_DIR}/jni/${ANDROID_ABI})
 
 link_directories(${FFMPEG_DIR}/lib)
 include_directories(${FFMPEG_DIR}/include)
