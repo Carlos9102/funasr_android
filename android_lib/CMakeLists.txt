@@ -10,8 +10,6 @@ set(ONNXRUNTIME_DIR ${CMAKE_CURRENT_BINARY_DIR}/${ONNXRUNTIME_VERSION})
 link_directories(${ONNXRUNTIME_DIR}/jni/${ANDROID_ABI})
 include_directories(${ONNXRUNTIME_DIR}/headers)
 
-# TODO, to add ffmpeg later
-set(FFMPEG_DIR /path/to/ffmpeg)
 link_directories(${FFMPEG_DIR}/lib)
 include_directories(${FFMPEG_DIR}/include)
 

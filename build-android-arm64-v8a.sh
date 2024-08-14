@@ -37,9 +37,13 @@ if [ ! -f $onnxruntime_version/jni/arm64-v8a/libonnxruntime.so ]; then
   popd
 fi
 
+wget https://isv-data.oss-cn-hangzhou.aliyuncs.com/ics/MaaS/ASR/dep_libs/ffmpeg-master-latest-linux64-gpl-shared.tar.xz
+tar -xvf ffmpeg-master-latest-linux64-gpl-shared.tar.xz
+
 cmake -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK/build/cmake/android.toolchain.cmake" \
     -DCMAKE_BUILD_TYPE=Release \
     -DBUILD_SHARED_LIBS=ON \
+    -DFFMPEG_DIR="$dir/ffmpeg-master-latest-linux64-gpl-shared" \
     -DCMAKE_INSTALL_PREFIX=./install \
     -DANDROID_ABI="arm64-v8a" \
     -DANDROID_PLATFORM=android-21 ..
