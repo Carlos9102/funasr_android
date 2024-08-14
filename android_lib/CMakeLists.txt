@@ -23,9 +23,6 @@ include_directories(${CMAKE_SOURCE_DIR}/json/single_include)
 
 set(FUNASR_RUNTIME_DIR ${CMAKE_SOURCE_DIR}/FunASR/runtime)
 
-include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/include)
-include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/src)
-
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/glog/src)
 set(BUILD_TESTING OFF)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/glog glog)
@@ -49,6 +46,9 @@ include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src/in
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi-native-fbank)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi-native-fbank/kaldi-native-fbank/csrc csrc)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi kaldi)
+
+include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/include)
+include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/src)
 
 aux_source_directory(${FUNASR_RUNTIME_DIR}/onnxruntime/src src_files)
 
