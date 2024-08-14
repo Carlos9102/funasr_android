@@ -26,9 +26,9 @@ set(FUNASR_RUNTIME_DIR ${CMAKE_SOURCE_DIR}/FunASR/runtime)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/include/)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/yaml-cpp/include/)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi-native-fbank)
-include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src/include/)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/src)
 
+add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/gflags gflags)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/gflags)
 message(STATUS "gflags binary dir: ${gflags_BINARY_DIR}")
 include_directories(${gflags_BINARY_DIR}/include)
@@ -40,7 +40,8 @@ add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/yaml-cpp yaml-cpp
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi-native-fbank/kaldi-native-fbank/csrc csrc)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/src src)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi kaldi)
-add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/gflags gflags)
+
+include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src/include/)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src openfst)
 
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/glog/src)
