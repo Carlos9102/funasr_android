@@ -39,8 +39,6 @@ include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/jieba/include)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/yaml-cpp yaml-cpp)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/yaml-cpp/include/)
 
-add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/src src)
-
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src openfst)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src/include/)
 
@@ -51,6 +49,8 @@ include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/include)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/src)
 
 aux_source_directory(${FUNASR_RUNTIME_DIR}/onnxruntime/src src_files)
+
+add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/src src)
 
 add_library(fawasr2pass-jni SHARED fawasr2pass.cc ${src_files}) 
 add_library(fawasroff-jni SHARED fawasroffline.cc ${src_files}) 
