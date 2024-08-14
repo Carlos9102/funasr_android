@@ -45,9 +45,9 @@ jobs:
       - name: Prepare nlohmann json
         shell: bash
         run: |
-          sudo apt install -y xz-utils
           wget https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz
-          xz --decompress json.tar.xz || tar -xvf json.tar.xz
+          tar -xvf json.tar.xz
+          ls -lt
 
       - name: build android arm64-v8a
         shell: bash
