@@ -39,7 +39,7 @@ jobs:
       - name: Prepare the submodule files i.e FunASR
         shell: bash
         run: |
-          git submodule update --recursive 
+          git submodule update --init --recursive 
           ls -lt FunASR
 
       - name: build android arm64-v8a
