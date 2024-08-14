@@ -32,6 +32,7 @@ include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/gflags)
 message(STATUS "gflags binary dir: ${gflags_BINARY_DIR}")
 include_directories(${gflags_BINARY_DIR}/include)
 
+include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi-native-fbank)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/jieba/include)
 
@@ -43,9 +44,8 @@ add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/src src)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src openfst)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src/include/)
 
-add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi kaldi)
-include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi-native-fbank)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi-native-fbank/kaldi-native-fbank/csrc csrc)
+add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi kaldi)
 
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/include)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/src)
