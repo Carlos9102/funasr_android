@@ -46,5 +46,6 @@ cmake -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK/build/cmake/android.toolchain.cmake" 
     -DANDROID_PLATFORM=android-21 ..
     
 make VERBOSE=1 -j4
+ls -lt
 cp -fv $onnxruntime_version/jni/armeabi-v7a/libonnxruntime.so install/lib
 rm -rf install/lib/pkgconfig
