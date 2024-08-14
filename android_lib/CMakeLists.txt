@@ -45,7 +45,7 @@ include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src/in
 
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi-native-fbank)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi-native-fbank/kaldi-native-fbank/csrc csrc)
-add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi kaldi)
+add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi)
 
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/include)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/src)
@@ -56,6 +56,6 @@ add_library(fawasr2pass-jni SHARED fawasr2pass.cc ${src_files})
 add_library(fawasroff-jni SHARED fawasroffline.cc ${src_files}) 
 
 target_link_libraries(fawasr2pass-jni PUBLIC avcodec avformat avutil avfilter swresample swscale)
-target_link_libraries(fawasr2pass-jni PUBLIC onnxruntime -pthread gflags fst kaldi-util kaldi-decoder yaml-cpp dl csrc glog log)
+target_link_libraries(fawasr2pass-jni PUBLIC onnxruntime -pthread gflags fst kaldi:kaldi-util kaldi:kaldi-decoder yaml-cpp dl csrc glog log)
 
 target_link_libraries(fawasroff-jni PUBLIC onnxruntime -pthread yaml-cpp csrc glog log)
