@@ -34,7 +34,7 @@ add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi kaldi)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/gflags gflags)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src openfst)
 
-include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/glog)
+include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/glog/src)
 set(BUILD_TESTING OFF)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/glog glog)
 
