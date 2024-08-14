@@ -33,6 +33,8 @@ if [ ! -f $onnxruntime_version/jni/arm64-v8a/libonnxruntime.so ]; then
   pushd $onnxruntime_version
   wget -c -q https://github.com/csukuangfj/onnxruntime-libs/releases/download/v${onnxruntime_version}/onnxruntime-android-${onnxruntime_version}.zip
   unzip onnxruntime-android-${onnxruntime_version}.zip
+  pwd
+  ls -lt
   rm onnxruntime-android-${onnxruntime_version}.zip
   popd
 fi

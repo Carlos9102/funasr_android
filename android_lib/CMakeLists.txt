@@ -24,7 +24,6 @@ include_directories(${CMAKE_SOURCE_DIR}/json/single_include)
 set(FUNASR_RUNTIME_DIR ${CMAKE_SOURCE_DIR}/FunASR/runtime)
 
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/include/)
-
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/src)
 
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/glog/src)
