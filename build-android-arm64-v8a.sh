@@ -46,9 +46,7 @@ cmake -DCMAKE_TOOLCHAIN_FILE="$ANDROID_NDK/build/cmake/android.toolchain.cmake" 
 
 # Please use -DANDROID_PLATFORM=android-27 if you want to use Android NNAPI
 
-# make VERBOSE=1 -j4
-make -j4
-make install/strip
+make VERBOSE=1 -j4
 cp -fv $onnxruntime_version/jni/arm64-v8a/libonnxruntime.so install/lib
 rm -rf install/lib/pkgconfig
 
