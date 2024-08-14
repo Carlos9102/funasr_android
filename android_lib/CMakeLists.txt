@@ -27,6 +27,10 @@ include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/include/)
 
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/src)
 
+include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/glog/src)
+set(BUILD_TESTING OFF)
+add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/glog glog)
+
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/gflags gflags)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/gflags)
 message(STATUS "gflags binary dir: ${gflags_BINARY_DIR}")
@@ -46,10 +50,6 @@ include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src/in
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi-native-fbank)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi-native-fbank/kaldi-native-fbank/csrc csrc)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi kaldi)
-
-include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/glog/src)
-set(BUILD_TESTING OFF)
-add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/glog glog)
 
 aux_source_directory(${FUNASR_RUNTIME_DIR}/onnxruntime/src src_files)
 
