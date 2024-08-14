@@ -5,7 +5,7 @@ project(FunASRWebscoket)
 set(CMAKE_CXX_STANDARD 14 CACHE STRING "The C++ version to be used.")
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set(ONNXRUNTIME_DOWNLOAD_DIR ${CMAKE_CURRENT_BINARY_DIR}/${ONNXRUNTIME_VERSION})
+set(ONNXRUNTIME_DOWNLOAD_DIR ${CMAKE_CURRENT_BINARY_DIR}/../${ONNXRUNTIME_VERSION})
 
 message(STATUS "onnxruntime dir: ${ONNXRUNTIME_DOWNLOAD_DIR}")
 message(STATUS "ANDROID ABI: ${ANDROID_ABI}")
@@ -23,7 +23,7 @@ include_directories(${CMAKE_SOURCE_DIR}/json/single_include)
 
 set(FUNASR_RUNTIME_DIR ${CMAKE_SOURCE_DIR}/FunASR/runtime)
 
-include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/include/)
+include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/include)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/src)
 
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/glog/src)
