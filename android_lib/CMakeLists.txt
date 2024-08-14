@@ -13,7 +13,10 @@ include_directories(${ONNXRUNTIME_DIR}/headers)
 link_directories(${FFMPEG_DIR}/lib)
 include_directories(${FFMPEG_DIR}/include)
 
-set(FUNASR_RUNTIME_DIR ${PROJECT_SOURCE_DIR}/FunASR/runtime)
+message(STATUS "cmake source dir is the following: ")
+message(STATUS ${CMAKE_SOURCE_DIR})
+
+set(FUNASR_RUNTIME_DIR ${CMAKE_SOURCE_DIR}/FunASR/runtime)
 
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/include/)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/yaml-cpp/include/)
