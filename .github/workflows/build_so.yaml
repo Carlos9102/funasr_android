@@ -88,14 +88,9 @@ jobs:
 
           ls -lh
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: funasr_android-android-libs
-          path: ./jniLibs
-     
       - name: Release android libs
         uses: svenstaro/upload-release-action@v2
         with:
           file_glob: true
           overwrite: true
-          file: funasr_android-*-android.tar.bz2
+          file: funasr_android-${FUNASR_ANDROID_VERSION}-android.tar.bz2
