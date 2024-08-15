@@ -95,5 +95,5 @@ jobs:
           file: funasr*.tar.bz2
           file_glob: true
           overwrite: true
-          tag: ${{ steps.copy_files.outputs.FUNASR_ANDROID_VERSION }}
+          release_name: ${{ steps.copy_files.outputs.FUNASR_ANDROID_VERSION }}
           
