@@ -61,14 +61,20 @@ jobs:
       #     cp -v ./build-android-arm64-v8a/install/lib/*.so ./jniLibs/arm64-v8a/
       #     rm -rf  ./build-android-arm64-v8a/
 
-      - name: build android armv7-eabi
+      # - name: build android armv7-eabi
+      #   shell: bash
+      #   run: |
+      #     export ANDROID_NDK=$ANDROID_NDK_LATEST_HOME
+      #     ./build-android-armv7-eabi.sh
+      #     mkdir -p ./jniLibs/armeabi-v7a/
+      #     cp -v ./build-android-armv7-eabi/install/lib/*.so ./jniLibs/armeabi-v7a/
+      #     rm -rf ./build-android-armv7-eabi
+
+      - name: test task, imitating the above 2 tasks done
         shell: bash
         run: |
-          export ANDROID_NDK=$ANDROID_NDK_LATEST_HOME
-          ./build-android-armv7-eabi.sh
           mkdir -p ./jniLibs/armeabi-v7a/
-          cp -v ./build-android-armv7-eabi/install/lib/*.so ./jniLibs/armeabi-v7a/
-          rm -rf ./build-android-armv7-eabi
+          touch ./jniLibs/armeabi-v7a/test_no_content.so
 
       - name: Copy files
         shell: bash
