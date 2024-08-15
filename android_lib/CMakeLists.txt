@@ -33,6 +33,7 @@ message(STATUS "gflags binary dir: ${gflags_BINARY_DIR}")
 include_directories(${gflags_BINARY_DIR}/include)
 
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi-native-fbank)
+include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/jieba/include)
 

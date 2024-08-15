@@ -61,20 +61,14 @@ jobs:
       #     cp -v ./build-android-arm64-v8a/install/lib/*.so ./jniLibs/arm64-v8a/
       #     rm -rf  ./build-android-arm64-v8a/
 
-      # - name: build android armv7-eabi
-      #   shell: bash
-      #   run: |
-      #     export ANDROID_NDK=$ANDROID_NDK_LATEST_HOME
-      #     ./build-android-armv7-eabi.sh
-      #     mkdir -p ./jniLibs/armeabi-v7a/
-      #     cp -v ./build-android-armv7-eabi/install/lib/*.so ./jniLibs/armeabi-v7a/
-      #     rm -rf ./build-android-armv7-eabi
-
-      - name: test task, imitating the above 2 tasks done
+      - name: build android armv7-eabi
         shell: bash
         run: |
+          export ANDROID_NDK=$ANDROID_NDK_LATEST_HOME
+          ./build-android-armv7-eabi.sh
           mkdir -p ./jniLibs/armeabi-v7a/
-          touch ./jniLibs/armeabi-v7a/test_no_content.so
+          cp -v ./build-android-armv7-eabi/install/lib/*.so ./jniLibs/armeabi-v7a/
+          rm -rf ./build-android-armv7-eabi
 
       - name: Copy files
         id: copy_files
@@ -95,5 +89,4 @@ jobs:
           file: funasr*.tar.bz2
           file_glob: true
           overwrite: true
-          release_name: ${{ steps.copy_files.outputs.FUNASR_ANDROID_VERSION }}
           
