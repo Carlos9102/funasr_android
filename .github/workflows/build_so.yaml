@@ -92,7 +92,8 @@ jobs:
       - name: Release android libs
         uses: svenstaro/upload-release-action@v2
         with:
-          file: funasr_android-${{ steps.copy_files.outputs.FUNASR_ANDROID_VERSION }}-android.tar.bz2
+          file: funasr*.tar.bz2
+          file_glob: true
           overwrite: true
           tag: ${{ github.ref }}
           
