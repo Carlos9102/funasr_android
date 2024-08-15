@@ -43,7 +43,13 @@ include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/yaml-cpp/inclu
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src openfst)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src/include/)
 
+# 为了顺利编译，先删除torch相关的文件
+file(GLOB TORCH_FILES ${FUNASR_RUNTIME_DIR}/onnxruntime/src/*-torch.h ${FUNASR_RUNTIME_DIR}/onnxruntime/src/*-torch.cpp)
+message(STATUS ${TORCH_FILES})
+file(REMOVE ${TORCH_FILES})
+
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/src)
+include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/include)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi-native-fbank/kaldi-native-fbank/csrc csrc)
 add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi kaldi)
 
@@ -54,7 +60,6 @@ add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/src src)
 add_library(fawasr2pass-jni SHARED fawasr2pass.cc ${funasr_onnxruntime_src_files}) 
 add_library(fawasroff-jni SHARED fawasroffline.cc ${funasr_onnxruntime_src_files}) 
 
-include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/include)
 target_link_libraries(fawasr2pass-jni PUBLIC avcodec avformat avutil avfilter swresample swscale)
 target_link_libraries(fawasr2pass-jni PUBLIC onnxruntime pthread gflags fst kaldi-util kaldi-decoder yaml-cpp dl csrc glog log)
 
