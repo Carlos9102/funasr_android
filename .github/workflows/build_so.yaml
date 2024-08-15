@@ -77,6 +77,7 @@ jobs:
           touch ./jniLibs/armeabi-v7a/test_no_content.so
 
       - name: Copy files
+        id: copy_files
         shell: bash
         run: |
           FUNASR_ANDROID_VERSION=v$(grep "FUNASR_ANDROID_VERSION" ./CMakeLists.txt  | cut -d " " -f 2  | cut -d '"' -f 2)
@@ -91,6 +92,8 @@ jobs:
       - name: Release android libs
         uses: svenstaro/upload-release-action@v2
         with:
+          file: funasr_android-${{ steps.copy_files.outputs.FUNASR_ANDROID_VERSION }}-android.tar.bz2
           file_glob: true
           overwrite: true
-          file: funasr_android-${FUNASR_ANDROID_VERSION}-android.tar.bz2
+          tag: ${{ github.ref }}
+          
