@@ -10,9 +10,11 @@ set(ONNXRUNTIME_DOWNLOAD_DIR ${CMAKE_CURRENT_BINARY_DIR}/../${ONNXRUNTIME_VERSIO
 message(STATUS "onnxruntime dir: ${ONNXRUNTIME_DOWNLOAD_DIR}")
 message(STATUS "ANDROID ABI: ${ANDROID_ABI}")
 
-if(LINUX)
-    message(STATUS ">>> Linux")
+if(UNIX)
+    message(STATUS ">>> UNIX")
     find_package(pthread REQUIRED)
+else()
+    message(STATUS ">>> not UNIX")
 endif()
 
 include_directories(${ONNXRUNTIME_DOWNLOAD_DIR}/headers)

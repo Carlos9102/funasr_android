@@ -42,12 +42,39 @@ jobs:
           git submodule update --init --recursive 
           ls -lt FunASR
 
-      - name: Install required libs i.e pthread
+      - name: Install required libs i.e pthread, ffmpeg related libs
         shell: bash
         run: |
           sudo apt-get update -qq 
           sudo apt-get -y install \
-               libpthread-stubs0-dev
+              libpthread-stubs0-dev \
+              autoconf \
+              automake \
+              build-essential \
+              cmake \
+              git-core \
+              libass-dev \
+              libfreetype6-dev \
+              libgnutls28-dev \
+              libmp3lame-dev \
+              libsdl2-dev \
+              libtool \
+              libva-dev \
+              libvdpau-dev \
+              libvorbis-dev \
+              libxcb1-dev \
+              libxcb-shm0-dev \
+              libxcb-xfixes0-dev \
+              meson \
+              ninja-build \
+              pkg-config \
+              texinfo \
+              wget \
+              yasm \
+              zlib1g-dev \
+              libunistring-dev \
+              libaom-dev \
+              libdav1d-dev
 
       - name: Prepare nlohmann json
         shell: bash
