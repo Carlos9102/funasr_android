@@ -61,6 +61,6 @@ add_library(fawasr2pass-jni SHARED fawasr2pass.cc ${funasr_onnxruntime_src_files
 add_library(fawasroff-jni SHARED fawasroffline.cc ${funasr_onnxruntime_src_files}) 
 
 target_link_libraries(fawasr2pass-jni PUBLIC avcodec avformat avutil avfilter swresample swscale)
-target_link_libraries(fawasr2pass-jni PUBLIC onnxruntime pthread gflags fst kaldi-util kaldi-decoder yaml-cpp dl csrc glog log)
+target_link_libraries(fawasr2pass-jni PUBLIC onnxruntime gflags fst kaldi-util kaldi-decoder yaml-cpp dl csrc glog log)
 
-target_link_libraries(fawasroff-jni PUBLIC onnxruntime pthread yaml-cpp csrc glog log)
+target_link_libraries(fawasroff-jni PUBLIC onnxruntime yaml-cpp csrc glog log)
