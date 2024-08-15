@@ -49,17 +49,17 @@ jobs:
           tar -xvf json.tar.xz
           ls -lt
 
-      - name: build android arm64-v8a
-        shell: bash
-        run: |
-          pwd
-          ls -lt .
-          ls -lt FunASR
-          export ANDROID_NDK=$ANDROID_NDK_LATEST_HOME
-          ./build-android-arm64-v8a.sh
-          mkdir -p jniLibs/arm64-v8a/
-          cp -v ./build-android-arm64-v8a/install/lib/*.so ./jniLibs/arm64-v8a/
-          rm -rf  ./build-android-arm64-v8a/
+      # - name: build android arm64-v8a
+      #   shell: bash
+      #   run: |
+      #     pwd
+      #     ls -lt .
+      #     ls -lt FunASR
+      #     export ANDROID_NDK=$ANDROID_NDK_LATEST_HOME
+      #     ./build-android-arm64-v8a.sh
+      #     mkdir -p jniLibs/arm64-v8a/
+      #     cp -v ./build-android-arm64-v8a/install/lib/*.so ./jniLibs/arm64-v8a/
+      #     rm -rf  ./build-android-arm64-v8a/
 
       - name: build android armv7-eabi
         shell: bash
