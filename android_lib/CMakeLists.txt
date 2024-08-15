@@ -10,6 +10,11 @@ set(ONNXRUNTIME_DOWNLOAD_DIR ${CMAKE_CURRENT_BINARY_DIR}/../${ONNXRUNTIME_VERSIO
 message(STATUS "onnxruntime dir: ${ONNXRUNTIME_DOWNLOAD_DIR}")
 message(STATUS "ANDROID ABI: ${ANDROID_ABI}")
 
+if(LINUX)
+    message(STATUS ">>> Linux")
+    find_package(pthread REQUIRED)
+endif()
+
 include_directories(${ONNXRUNTIME_DOWNLOAD_DIR}/headers)
 link_directories(${ONNXRUNTIME_DOWNLOAD_DIR}/jni/${ANDROID_ABI})
 
@@ -37,11 +42,11 @@ include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/kaldi)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/jieba/include)
 
-add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/yaml-cpp yaml-cpp)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/yaml-cpp/include/)
+add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/yaml-cpp yaml-cpp)
 
-add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src openfst)
 include_directories(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src/include/)
+add_subdirectory(${FUNASR_RUNTIME_DIR}/onnxruntime/third_party/openfst/src openfst)
 
 # 为了顺利编译，先删除torch相关的文件
 file(GLOB TORCH_FILES ${FUNASR_RUNTIME_DIR}/onnxruntime/src/*-torch.h ${FUNASR_RUNTIME_DIR}/onnxruntime/src/*-torch.cpp)
@@ -61,6 +66,6 @@ add_library(fawasr2pass-jni SHARED fawasr2pass.cc ${funasr_onnxruntime_src_files
 add_library(fawasroff-jni SHARED fawasroffline.cc ${funasr_onnxruntime_src_files}) 
 
 target_link_libraries(fawasr2pass-jni PUBLIC avcodec avformat avutil avfilter swresample swscale)
-target_link_libraries(fawasr2pass-jni PUBLIC onnxruntime gflags fst kaldi-util kaldi-decoder yaml-cpp dl csrc glog log)
+target_link_libraries(fawasr2pass-jni PUBLIC onnxruntime pthread gflags fst kaldi-util kaldi-decoder yaml-cpp dl csrc glog log)
 
-target_link_libraries(fawasroff-jni PUBLIC onnxruntime yaml-cpp csrc glog log)
+target_link_libraries(fawasroff-jni PUBLIC onnxruntime pthread yaml-cpp csrc glog log)
